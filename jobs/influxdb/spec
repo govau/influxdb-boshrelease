@@ -30,3 +30,8 @@ properties:
   influxdb.udp.bind_address:
     default: ":8089"
     description: "udp service bind address"
+
+  influxdb.data.max_values_per_tag:
+    description: "maximum number of tag values allowed per tag key"
+  influxdb.data.max_series_per_database:
+    description: "maximum number of series allowed per database"

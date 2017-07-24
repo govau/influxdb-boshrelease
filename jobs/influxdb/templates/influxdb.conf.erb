@@ -22,6 +22,12 @@ join = ""
   compact-full-write-cold-duration = "24h0m0s"
   max-points-per-block = 0
   data-logging-enabled = true
+<% if_p("influxdb.data.max_values_per_tag") do |max_values_per_tag| %>
+  max-values-per-tag = <%= max_values_per_tag %>
+<% end %>
+<% if_p("influxdb.data.max_series_per_database") do |max_series_per_database| %>
+  max-series-per-database = <%= max_series_per_database %>
+<% end %>
 
 [coordinator]
   write-timeout = "10s"
