@@ -31,7 +31,15 @@ properties:
     default: ":8089"
     description: "udp service bind address"
 
+  influxdb.logging.log_level:
+    description: The log level for influxdb
+    default: error
+
   influxdb.data.max_values_per_tag:
     description: "maximum number of tag values allowed per tag key"
   influxdb.data.max_series_per_database:
     description: "maximum number of series allowed per database"
+
+  influxdb.http.log_enabled:
+    description: "enable logging of http queries"
+    default: false

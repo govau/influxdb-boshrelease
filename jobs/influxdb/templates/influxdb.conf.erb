@@ -10,6 +10,9 @@ join = ""
   pprof-enabled = false
   lease-duration = "1m0s"
 
+[logging]
+  level = "<%= p("influxdb.logging.log_level") %>"
+
 [data]
   dir = "/var/vcap/store/influxdb/data"
   wal-dir = "/var/vcap/store/influxdb/wal"
@@ -67,7 +70,7 @@ join = ""
   enabled = true
   bind-address = ":8086"
   auth-enabled = false
-  log-enabled = true
+  log-enabled = <%= p("influxdb.http.log_enabled") %>
   write-tracing = false
   pprof-enabled = false
   https-enabled = false
