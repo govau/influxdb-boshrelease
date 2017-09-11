@@ -1,6 +1,8 @@
 builds:
   19a025da-9989-4559-6257-1e88ddab93dc:
     version: "6"
+  267ec1f3-2a0d-4e5b-597a-3f466c56c103:
+    version: "7"
   464b8d6e-58b5-4f61-8c4c-a22ce69e83ec:
     version: "3"
   7d40489e-b1e9-4a71-b2bf-bc761d29ade8:
