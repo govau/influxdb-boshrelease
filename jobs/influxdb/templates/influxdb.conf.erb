@@ -1,42 +1,36 @@
 reporting-disabled = true
 bind-address = ":8088"
 hostname = "<%= spec.address %>"
-join = ""
 
 [meta]
   dir = "/var/vcap/store/influxdb/meta"
   retention-autocreate = true
   logging-enabled = true
-  pprof-enabled = false
-  lease-duration = "1m0s"
-
-[logging]
-  level = "<%= p("influxdb.logging.log_level") %>"
 
 [data]
   dir = "/var/vcap/store/influxdb/data"
+  index-version = "inmem"
   wal-dir = "/var/vcap/store/influxdb/wal"
-  engine = "tsm1"
-  wal-logging-enabled = true
+  wal-fsync-delay = "0s"
   query-log-enabled = true
-  cache-max-memory-size = 524288000
+  cache-max-memory-size = 1073741824
   cache-snapshot-memory-size = 26214400
-  cache-snapshot-write-cold-duration = "1h0m0s"
-  compact-full-write-cold-duration = "24h0m0s"
-  max-points-per-block = 0
-  data-logging-enabled = true
+  cache-snapshot-write-cold-duration = "10m0s"
+  compact-full-write-cold-duration = "4h0m0s"
 <% if_p("influxdb.data.max_values_per_tag") do |max_values_per_tag| %>
   max-values-per-tag = <%= max_values_per_tag %>
 <% end %>
 <% if_p("influxdb.data.max_series_per_database") do |max_series_per_database| %>
   max-series-per-database = <%= max_series_per_database %>
 <% end %>
+  max-concurrent-compactions = 0
+  trace-logging-enabled = false
 
 [coordinator]
   write-timeout = "10s"
   max-concurrent-queries = 0
-  query-timeout = "0"
-  log-queries-after = "0"
+  query-timeout = "0s"
+  log-queries-after = "0s"
   max-select-point = 0
   max-select-series = 0
   max-select-buckets = 0
@@ -50,13 +44,6 @@ join = ""
   check-interval = "10m0s"
   advance-period = "30m0s"
 
-[admin]
-  enabled = true
-  bind-address = ":8083"
-  https-enabled = false
-  https-certificate = "/etc/ssl/influxdb.pem"
-  Version = ""
-
 [monitor]
   store-enabled = true
   store-database = "_internal"
@@ -65,6 +52,10 @@ join = ""
 [subscriber]
   enabled = true
   http-timeout = "30s"
+  insecure-skip-verify = false
+  ca-certs = ""
+  write-concurrency = 40
+  write-buffer-size = 1000
 
 [http]
   enabled = true
@@ -72,18 +63,22 @@ join = ""
   auth-enabled = false
   log-enabled = <%= p("influxdb.http.log_enabled") %>
   write-tracing = false
-  pprof-enabled = false
+  pprof-enabled = true
   https-enabled = false
   https-certificate = "/etc/ssl/influxdb.pem"
   https-private-key = ""
-  max-row-limit = 10000
+  max-row-limit = 0
   max-connection-limit = 0
   shared-secret = ""
+  realm = "InfluxDB"
+  unix-socket-enabled = false
+  bind-socket = "/var/run/influxdb.sock"
 
 [[graphite]]
   enabled = false
   bind-address = ":2003"
   database = "graphite"
+  retention-policy = ""
   protocol = "tcp"
   batch-size = 5000
   batch-pending = 10
@@ -102,6 +97,8 @@ join = ""
   batch-timeout = "10s"
   read-buffer = 0
   typesdb = "/usr/share/collectd/types.db"
+  security-level = "none"
+  auth-file = "/etc/collectd/auth_file"
 
 [[opentsdb]]
   enabled = false

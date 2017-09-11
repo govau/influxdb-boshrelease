@@ -4,4 +4,4 @@ name: influxdb
 dependencies: []
 
 files:
-- influxdb_1.2.4/influxdb-1.2.4_linux_amd64.tar.gz
+- influxdb_1.3/influxdb-1.3.5-static_linux_amd64.tar.gz
