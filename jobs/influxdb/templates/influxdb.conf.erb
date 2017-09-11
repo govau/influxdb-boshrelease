@@ -9,7 +9,7 @@ hostname = "<%= spec.address %>"
 
 [data]
   dir = "/var/vcap/store/influxdb/data"
-  index-version = "inmem"
+  index-version = "<%= p("influxdb.data.index_version") %>"
   wal-dir = "/var/vcap/store/influxdb/wal"
   wal-fsync-delay = "0s"
   query-log-enabled = true

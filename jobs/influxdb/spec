@@ -1,5 +1,6 @@
 ---
 name: influxdb
+
 templates:
   influxd_ctl.erb: bin/influxd_ctl
   influxdb.conf.erb: config/influxdb.conf
@@ -25,20 +26,22 @@ properties:
     description: "default replication count for database"
 
   influxdb.udp.enabled:
-    default: "false"
+    default: false
     description: "enable udp service"
   influxdb.udp.bind_address:
     default: ":8089"
     description: "udp service bind address"
 
-  influxdb.logging.log_level:
-    description: The log level for influxdb
-    default: error
-
+  influxdb.data.index_version:
+    description: |
+      The type of shard index to use for new shards.
+    default: inmem
   influxdb.data.max_values_per_tag:
-    description: "maximum number of tag values allowed per tag key"
+    description: |
+      The maximum number of tag values allowed per tag key.
   influxdb.data.max_series_per_database:
-    description: "maximum number of series allowed per database"
+    description: |
+      The maximum number of series allowed per database.
 
   influxdb.http.log_enabled:
     description: "enable logging of http queries"
