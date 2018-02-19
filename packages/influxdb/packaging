@@ -1,8 +1,8 @@
 set -e -u
 
-tar xvfz influxdb_1.3/influxdb-1.3.5-static_linux_amd64.tar.gz
+tar xvfz influxdb_1.4/influxdb-1.4.3-static_linux_amd64.tar.gz
 
-pushd influxdb-1.3.5-1
+pushd influxdb-1.4.3-1
   cp influxd $BOSH_INSTALL_TARGET
   cp influx $BOSH_INSTALL_TARGET
   cp influx_stress $BOSH_INSTALL_TARGET
