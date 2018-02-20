@@ -9,7 +9,6 @@ templates:
 
 packages:
 - influxdb
-- bootstrapper
 
 provides:
   - name: influxdb
