@@ -5,6 +5,7 @@ templates:
   influxd_ctl.erb: bin/influxd_ctl
   influxdb.conf.erb: config/influxdb.conf
   https_cert.pem.erb: config/https_cert.pem
+  utils.sh: bin/utils.sh
 
 packages:
 - influxdb
