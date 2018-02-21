@@ -59,14 +59,14 @@ hostname = "<%= spec.address %>"
 
 [http]
   enabled = true
-  bind-address = ":8086"
-  auth-enabled = false
+  bind-address = ":<%= p("influxdb.http.port") %>"
+  auth-enabled = <%= p("influxdb.auth_enabled") %>
   log-enabled = <%= p("influxdb.http.log_enabled") %>
   write-tracing = false
   pprof-enabled = true
-  https-enabled = false
-  https-certificate = "/etc/ssl/influxdb.pem"
-  https-private-key = ""
+  https-enabled = <%= p("influxdb.http.tls.enabled") %>
+  https-certificate = "/var/vcap/jobs/influxdb/config/https_cert.pem"
+  https-private-key = "/var/vcap/jobs/influxdb/config/https_cert.pem"
   max-row-limit = 0
   max-connection-limit = 0
   shared-secret = ""
