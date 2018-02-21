@@ -1,4 +1,6 @@
 builds:
+  761987b6-3b48-44da-5cdd-af4c0a2eb7a7:
+    version: 0.2.0-govau
   e793f8b4-af7a-4df4-4d1e-811108a18eec:
     version: 0.1.0-govau
 format-version: "2"

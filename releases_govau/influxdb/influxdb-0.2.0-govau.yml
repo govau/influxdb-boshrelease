@@ -1,0 +1,19 @@
+name: influxdb
+version: 0.2.0-govau
+commit_hash: 8da6e5d
+uncommitted_changes: true
+jobs:
+- name: influxdb
+  version: 099a4752e62bde191aea7cf56df1f143eafee46a
+  fingerprint: 099a4752e62bde191aea7cf56df1f143eafee46a
+  sha1: b1cff969f9544afc05172979cada0bfcd6959614
+packages:
+- name: influxdb
+  version: 8ed7acf9d0a2b0d4770631edd67ebb5107df3e27
+  fingerprint: 8ed7acf9d0a2b0d4770631edd67ebb5107df3e27
+  sha1: 537b1bb43a913634061e934a2bea07c62f92193e
+  dependencies: []
+license:
+  version: 20f5c57713d88e62da7ca2d033365f09d096cfb2
+  fingerprint: 20f5c57713d88e62da7ca2d033365f09d096cfb2
+  sha1: 7b9e8e3de59429dca734f046bdcf8dd1332456c3
