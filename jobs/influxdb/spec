@@ -9,6 +9,14 @@ packages:
 - influxdb
 - bootstrapper
 
+provides:
+  - name: influxdb
+    type: influxdb
+    properties:
+      - influxdb.database
+      - influxdb.user
+      - influxdb.password
+
 properties:
   influxdb.database:
     description: "database name in influxdb to create"
